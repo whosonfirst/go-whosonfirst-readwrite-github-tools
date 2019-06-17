@@ -1,0 +1,41 @@
+# github.com/facebookgo/atomicfile v0.0.0-20151019000000-2de1f203e7d5e386a6833233882782932729f27e
+github.com/facebookgo/atomicfile
+# github.com/golang/protobuf v1.3.1
+github.com/golang/protobuf/proto
+# github.com/google/go-github v17.0.0+incompatible
+github.com/google/go-github/github
+# github.com/google/go-querystring v1.0.0
+github.com/google/go-querystring/query
+# github.com/patrickmn/go-cache v2.1.0+incompatible
+github.com/patrickmn/go-cache
+# github.com/tidwall/gjson v1.2.1
+github.com/tidwall/gjson
+# github.com/tidwall/match v1.0.1
+github.com/tidwall/match
+# github.com/tidwall/pretty v1.0.0
+github.com/tidwall/pretty
+# github.com/tidwall/sjson v1.0.4
+github.com/tidwall/sjson
+# github.com/whosonfirst/go-whosonfirst-cache v0.1.0
+github.com/whosonfirst/go-whosonfirst-cache
+# github.com/whosonfirst/go-whosonfirst-readwrite v0.1.0
+github.com/whosonfirst/go-whosonfirst-readwrite/reader
+github.com/whosonfirst/go-whosonfirst-readwrite/writer
+github.com/whosonfirst/go-whosonfirst-readwrite/utils
+# github.com/whosonfirst/go-whosonfirst-readwrite-github v0.1.0
+github.com/whosonfirst/go-whosonfirst-readwrite-github/reader
+github.com/whosonfirst/go-whosonfirst-readwrite-github/writer
+# golang.org/x/net v0.0.0-20190503192946-f4e77d36d62c
+golang.org/x/net/context/ctxhttp
+golang.org/x/net/context
+# golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45
+golang.org/x/oauth2
+golang.org/x/oauth2/internal
+# google.golang.org/appengine v1.5.0
+google.golang.org/appengine/urlfetch
+google.golang.org/appengine/internal
+google.golang.org/appengine/internal/urlfetch
+google.golang.org/appengine/internal/base
+google.golang.org/appengine/internal/datastore
+google.golang.org/appengine/internal/log
+google.golang.org/appengine/internal/remote_api
