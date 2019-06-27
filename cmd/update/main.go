@@ -19,7 +19,9 @@ func main() {
 	var branch = flag.String("branch", "master", "...")
 	var token = flag.String("token", "", "...")
 	var action = flag.String("action", "", "...")
-	
+
+	var ceased_date = flag.String("ceased-date", "", "...")
+
 	flag.Parse()
 
 	ctx, cancel := context.WithCancel(context.Background())
@@ -32,10 +34,10 @@ func main() {
 	}
 
 	t := &writer.GitHubAPIWriterCommitTemplates{
-		New: "",
+		New:    "",
 		Update: "Flag %s as ceased",
 	}
-		
+
 	wr, err := writer.NewGitHubAPIWriter(ctx, *owner, *repo, *branch, *token, t)
 
 	if err != nil {
@@ -43,8 +45,6 @@ func main() {
 	}
 
 	// exporter.NewExporter(wr)
-	
-	dt := time.Now() // sudo make this an option...
 
 	for _, path := range flag.Args() {
 
@@ -63,20 +63,33 @@ func main() {
 		}
 
 		switch *action {
-			case "ceased":
-		
-			body, err = sjson.SetBytes(body, "properties.edtf:cessation", dt.Format("20060102"))
+		case "ceased":
+
+			dt := time.Now()
+
+			if *ceased_date != "" {
+
+				t, err := time.Parse("2006-01-02", *ceased_date)
+
+				if err != nil {
+					log.Fatal(err)
+				}
+
+				dt = t
+			}
+
+			body, err = sjson.SetBytes(body, "properties.edtf:cessation", dt.Format("2006-01-02"))
 
 			if err != nil {
 				log.Fatal(err)
 			}
-			
+
 			body, err = sjson.SetBytes(body, "properties.mz:is_current", 0)
 
 			if err != nil {
 				log.Fatal(err)
 			}
-			
+
 		default:
 			log.Fatal("Unsupported action")
 		}
@@ -87,9 +100,9 @@ func main() {
 		if err != nil {
 			log.Fatal(err)
 		}
-		
+
 		// exporter.ExportFeature(body)
-		
+
 		b := bytes.NewReader(body)
 		out := ioutil.NopCloser(b)
 
